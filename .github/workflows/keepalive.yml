@@ -2,8 +2,12 @@ name: Keep Repository Alive
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # 每天提交一次，可按需调整
-  workflow_dispatch:        # 允许手动运行
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+# 关键：赋予工作流写入仓库文件权限
+permissions:
+  contents: write
 
 jobs:
   keep-alive:
